@@ -76,11 +76,11 @@ Contributions are welcome! Follow these steps:
 5. Submit a pull request.
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the avhinfotechs License. See the LICENSE file for details.
 
 ## Contact
-- **Name**: Akash
-- **Email**: your-email@example.com
+- **Name**: HARINI R
+- **Email**: harinirajan@gmail.com
 
 Enjoy managing your tasks with this Django To-Do List application!
 

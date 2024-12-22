@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    {% comment %} Uncomment the line below if you want to use your custom CSS {% endcomment %}
+    <link rel="stylesheet" href="{% static 'CSS/styles.css' %}">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Font Awesome 5 Brands:wght@400&display=swap">
+    <script src="https://kit.fontawesome.com/cb792c0850.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="signup-login">
+        <div>
+            <h1>Hello {{ user.first_name }}</h1>
+        </div>
+        <div class="signup-box">
+            <div class="heading">
+                Get Things Done?
+            </div>
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" class="inp" name="title" placeholder="Add today's task?" required 
+                       value="{{ obj.title|default:'' }}">
+                <input type="submit" class="submit-button" value="Update Task">
+            </form>
+
+            {% for todo in res %}
+            <div class="Todo">
+                <h5>{{ todo.srno }}</h5>
+                <p>{{ todo.title }}</p>
+                <div>
+                    <!-- Replace '#' with appropriate URLs -->
+                    <a href="{% url 'edit_todo' srno=todo.srno %}">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <a href="{% url 'edit_todo' todo.srno %}">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
